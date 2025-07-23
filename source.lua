@@ -243,21 +243,21 @@ if not requestsDisabled then
 	end
 end
 
-local promptUser = math.random(1,6)
+--local promptUser = math.random(1,6)
 
-if promptUser == 1 and prompt and type(prompt.create) == "function" then
-	prompt.create(
-		'Be cautious when running scripts',
-	    [[Please be careful when running scripts from unknown developers. This script has already been ran.
+--if promptUser == 1 and prompt and type(prompt.create) == "function" then
+--	prompt.create(
+--		'Be cautious when running scripts',
+--	    [[Please be careful when running scripts from unknown developers. This script has already been ran.
 
-<font transparency='0.3'>Some scripts may steal your items or in-game goods.</font>]],
-		'Okay',
-		'',
-		function()
-
-		end
-	)
-end
+--<font transparency='0.3'>Some scripts may steal your items or in-game goods.</font>]],
+--		'Okay',
+--		'',
+--		function()
+--
+--		end
+--	)
+--end
 
 if debugX then
 	warn('Moving on to continue initialisation')
@@ -654,7 +654,7 @@ local CoreGui = getService("CoreGui")
 
 -- Interface Management
 
-local Rayfield = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://4483362458")[1]
+local Rayfield = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://10804731440")[1]
 local buildAttempts = 0
 local correctBuild = false
 local warned
