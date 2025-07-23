@@ -69,7 +69,7 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 	return if success then result else nil
 end
 
-local requestsDisabled = false --getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
+local requestsDisabled = true --getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
 local InterfaceBuild = '3K3W'
 local Release = "Build 1.68"
 local RayfieldFolder = "Rayfield"
@@ -84,7 +84,7 @@ local settingsTable = {
 
 	},
 	System = {
-		usageAnalytics = {Type = 'toggle', Value = false, Name = 'Anonymised Analytics'},
+		usageAnalytics = {Type = 'toggle', Value = true, Name = 'Anonymised Analytics'},
 	}
 }
 
@@ -675,7 +675,7 @@ repeat
 		warned = true
 	end
 
-	toDestroy, Rayfield = Rayfield, useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://4483362458")[1]
+	toDestroy, Rayfield = Rayfield, useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://10804731440")[1]
 	if toDestroy and not useStudio then toDestroy:Destroy() end
 
 	buildAttempts = buildAttempts + 1
