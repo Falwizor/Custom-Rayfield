@@ -1571,7 +1571,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Rayfield.Enabled = true
 			Rayfield.Loading.Visible = true
 
-			task.wait(1.4)
+			task.wait(5.4)
 			Rayfield.Loading.Visible = false
 		end
 	end
