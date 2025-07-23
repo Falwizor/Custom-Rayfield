@@ -69,7 +69,6 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 	return if success then result else nil
 end
 
-getgenv().DISABLE_RAYFIELD_REQUESTS
 local requestsDisabled = true --getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
 local InterfaceBuild = '3K3W'
 local Release = "Build 1.68"
@@ -206,7 +205,7 @@ if not requestsDisabled then
 	if debugX then
 		warn('Querying Settings for Reporter Information')
 	end	
-	--analyticsLib = loadWithTimeout("https://analytics.sirius.menu/script")
+	analyticsLib = loadWithTimeout("https://analytics.sirius.menu/script")
 	if not analyticsLib then
 		warn("Failed to load analytics reporter")
 		analyticsLib = nil
@@ -245,20 +244,21 @@ if not requestsDisabled then
 end
 
 --local promptUser = math.random(1,6)
+local promptUser = 0
 
---if promptUser == 1 and prompt and type(prompt.create) == "function" then
---	prompt.create(
---		'Be cautious when running scripts',
---	    [[Please be careful when running scripts from unknown developers. This script has already been ran.
+if promptUser == 1 and prompt and type(prompt.create) == "function" then
+	prompt.create(
+		'Be cautious when running scripts',
+	    [[Please be careful when running scripts from unknown developers. This script has already been ran.
 
---<font transparency='0.3'>Some scripts may steal your items or in-game goods.</font>]],
---		'Okay',
---		'',
---		function()
---
---		end
---	)
---end
+<font transparency='0.3'>Some scripts may steal your items or in-game goods.</font>]],
+		'Okay',
+		'',
+		function()
+
+		end
+	)
+end
 
 if debugX then
 	warn('Moving on to continue initialisation')
