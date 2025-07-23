@@ -69,6 +69,7 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 	return if success then result else nil
 end
 
+getgenv().DISABLE_RAYFIELD_REQUESTS
 local requestsDisabled = true --getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
 local InterfaceBuild = '3K3W'
 local Release = "Build 1.68"
@@ -1568,7 +1569,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	if Rayfield:FindFirstChild('Loading') then
 		if getgenv and not getgenv().rayfieldCached then
 			Rayfield.Enabled = true
-			Rayfield.Loading.Visible = false
+			Rayfield.Loading.Visible = true
 
 			task.wait(1.4)
 			Rayfield.Loading.Visible = false
